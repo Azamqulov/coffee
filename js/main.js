@@ -1,4 +1,5 @@
 // Intersection Observer for animations
+
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -109,3 +110,28 @@ window.addEventListener('scroll', () => {
         navbar.classList.remove('scrolled');
     }
 });
+
+// Cookie Consent
+document.addEventListener("DOMContentLoaded", () => {
+    const cookieConsent = document.getElementById("cookieConsent")
+    const cookieAccept = document.getElementById("cookieAccept")
+  
+    // Check if user has already accepted cookies
+    if (!localStorage.getItem("cookieConsent")) {
+      cookieConsent.style.display = "block"
+    }
+  
+    cookieAccept.addEventListener("click", () => {
+      localStorage.setItem("cookieConsent", "true")
+      cookieConsent.style.display = "none"
+    })
+  
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector(".mobile-menu-toggle")
+    const navList = document.querySelector(".nav-list")
+  
+    menuToggle.addEventListener("click", () => {
+      navList.classList.toggle("active")
+      menuToggle.classList.toggle("active")
+    })
+})  
